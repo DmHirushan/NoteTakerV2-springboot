@@ -1,7 +1,7 @@
 package lk.ijse.gdse.aad68.NoteTakerV2.dto.impl;
 
-import lk.ijse.gdse.aad68.notetaker.customObj.NoteResponse;
-import lk.ijse.gdse.aad68.notetaker.dto.SuperDto;
+import lk.ijse.gdse.aad68.NoteTakerV2.customObj.NoteResponse;
+import lk.ijse.gdse.aad68.NoteTakerV2.dto.SuperDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

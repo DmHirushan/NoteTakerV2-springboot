@@ -1,7 +1,8 @@
 package lk.ijse.gdse.aad68.NoteTakerV2.service;
 
-import lk.ijse.gdse.aad68.notetaker.customObj.UserResponse;
-import lk.ijse.gdse.aad68.notetaker.dto.impl.UserDto;
+
+import lk.ijse.gdse.aad68.NoteTakerV2.customObj.UserResponse;
+import lk.ijse.gdse.aad68.NoteTakerV2.dto.impl.UserDto;
 
 import java.util.List;
 
