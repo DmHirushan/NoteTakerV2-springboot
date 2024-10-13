@@ -4,7 +4,10 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
 import java.util.List;
 
 @NoArgsConstructor
@@ -12,7 +15,7 @@ import java.util.List;
 @Data
 @Table(name = "users")
 @Entity
-public class UserEntity implements SuperEntity {
+public class UserEntity implements SuperEntity, UserDetails {
     @Id
     private String userId;
     private String firstName;
@@ -24,4 +27,19 @@ public class UserEntity implements SuperEntity {
     private String profilePic;
     @OneToMany(mappedBy = "user")
     private List<NoteEntity> notes;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public String getUsername() {
+        return null;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return UserDetails.super.isAccountNonExpired();
+    }
 }

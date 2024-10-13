@@ -23,38 +23,33 @@ public class UserController {
     @Autowired
     private final UserService userService;
 
-//    @GetMapping("/healthcheck")
-//    public String healthCheck(){
-//        return "User Controller running!";
+//    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+//    public ResponseEntity<Void> saveUser(@RequestPart("firstName") String firstName,
+//                                           @RequestPart("lastName") String lastName,
+//                                           @RequestPart("email") String email,
+//                                           @RequestPart("password") String password,
+//                                           @RequestPart("profilePic") MultipartFile profilePic){
+//
+//        try{
+//        //Handle profile pic
+//            byte[] imageByteCollection = profilePic.getBytes();
+//            String base64ProfilePic = AppUtil.toBase64ProfilePic(imageByteCollection);
+//            var buildUserDto = new UserDto();
+//            buildUserDto.setFirstName(firstName);
+//            buildUserDto.setLastName(lastName);
+//            buildUserDto.setEmail(email);
+//            buildUserDto.setPassword(password);
+//            buildUserDto.setProfilePic(base64ProfilePic);
+//
+//            userService.saveUser(buildUserDto);
+//            return new ResponseEntity<>(HttpStatus.CREATED);
+//        } catch (DataPersistFailedException e) {
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+
 //    }
-
-    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<Void> saveUser(@RequestPart("firstName") String firstName,
-                                           @RequestPart("lastName") String lastName,
-                                           @RequestPart("email") String email,
-                                           @RequestPart("password") String password,
-                                           @RequestPart("profilePic") MultipartFile profilePic){
-
-        try{
-        //Handle profile pic
-            byte[] imageByteCollection = profilePic.getBytes();
-            String base64ProfilePic = AppUtil.toBase64ProfilePic(imageByteCollection);
-            var buildUserDto = new UserDto();
-            buildUserDto.setFirstName(firstName);
-            buildUserDto.setLastName(lastName);
-            buildUserDto.setEmail(email);
-            buildUserDto.setPassword(password);
-            buildUserDto.setProfilePic(base64ProfilePic);
-
-            userService.saveUser(buildUserDto);
-            return new ResponseEntity<>(HttpStatus.CREATED);
-        } catch (DataPersistFailedException e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-
-    }
 
     @DeleteMapping("/{userId}")
     public ResponseEntity<Void> deleteUser(@PathVariable ("userId") String userId){
